@@ -30,7 +30,7 @@ def main():
         usuarios = obtener_usuarios()
         df = procesamiento_datos(usuarios)
         df.to_excel("usuarios.xlsx", index=False)
-        print("Archivo usuarios.xlsx generado correctamente")
         
         if __name__ == "__main__":
             main()
+            print("Archivo usuarios.xlsx generado correctamente")
