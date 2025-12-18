@@ -1,8 +1,6 @@
 import urllib.request
 import json
 import pandas as pd
-import os
-import platform
 
 def obtener_usuarios():
     """ Obtiene la lista de usuarios desde una API pública y la devuelve como una lista de diccionarios. """
