@@ -16,11 +16,21 @@ def obtener_usuarios():
 def procesamiento_datos(usuarios):
     """ Procesa la lista de usuarios obtenida de la Api """
     datos_limpios = []
-    for usuario in usuarios:
+    for u in usuarios:
         datos_limpios.append({
-            'ID': usuario['id'],
-            'Nombre': usuario['name'],
-            'Email': usuario['email'],
-            'Ciudad': usuario['address']['city'],
-            'Empresa': usuario['company']['name']
+            'ID': usuarios['id'],
+            'Nombre': usuarios['name'],
+            'Email': usuarios['email'],
+            'Ciudad': usuarios['address']['city'],
+            'Empresa':usuarios['company']['name']
         })
+    return pd.DataFrame(datos_limpios)
+    
+def main():
+        usuarios = obtener_usuarios()
+        df = procesamiento_datos(usuarios)
+        df.to_excel("usuarios.xlsx", index=False)
+        print("Archivo usuarios.xlsx generado correctamente")
+        
+        if __name__ == "__main__":
+            main()
